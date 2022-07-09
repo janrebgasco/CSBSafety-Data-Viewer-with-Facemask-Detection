@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "796659436463",
+    "firebase_url": "https://csb-safety-default-rtdb.firebaseio.com",
+    "project_id": "csb-safety",
+    "storage_bucket": "csb-safety.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796659436463:android:800191cce0445fcaac7d5a",
+        "android_client_info": {
+          "package_name": "com.rebo.gaseo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796659436463-319mvp94n0nva48rekmdc2a5p694320j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChznZ0jpLfFEQRNEnWSc-7jMONaJr_3Uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796659436463-319mvp94n0nva48rekmdc2a5p694320j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796659436463:android:bc0b9f0bb9240568ac7d5a",
+        "android_client_info": {
+          "package_name": "com.ucc.csbsafety"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796659436463-319mvp94n0nva48rekmdc2a5p694320j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChznZ0jpLfFEQRNEnWSc-7jMONaJr_3Uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796659436463-319mvp94n0nva48rekmdc2a5p694320j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796659436463:android:29cff53f78b3497dac7d5a",
+        "android_client_info": {
+          "package_name": "com.ucc.csbsafetydataviewer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796659436463-319mvp94n0nva48rekmdc2a5p694320j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChznZ0jpLfFEQRNEnWSc-7jMONaJr_3Uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796659436463-319mvp94n0nva48rekmdc2a5p694320j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

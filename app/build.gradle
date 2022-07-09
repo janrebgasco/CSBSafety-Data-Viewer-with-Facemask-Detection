@@ -1,0 +1,91 @@
+
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'de.undercouch.download'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.0"
+
+    defaultConfig {
+        applicationId "com.ucc.csbsafetydataviewer"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    aaptOptions {
+        noCompress "tflite"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+// import DownloadModels task
+project.ext.ASSET_DIR = projectDir.toString() + '/src/main/assets'
+project.ext.TMP_DIR   = project.buildDir.toString() + '/downloads'
+
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'com.google.firebase:firebase-database:20.0.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.0.0'
+    implementation('org.tensorflow:tensorflow-lite:0.0.0-nightly') { changing = true }
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.google.truth:truth:1.0.1'
+
+    // added MLKit dependencies for face detector
+    implementation 'com.google.mlkit:face-detection:16.0.0'
+}
+
+task downloadZipFile(type: Download) {
+    src 'http://storage.googleapis.com/download.tensorflow.org/models/tflite/coco_ssd_mobilenet_v1_1.0_quant_2018_06_29.zip'
+    dest new File(buildDir, 'zips/')
+    overwrite false
+}
+
+
+task downloadAndUnzipFile(dependsOn: downloadZipFile, type: Copy) {
+    from zipTree(downloadZipFile.dest)
+    into project.ext.ASSET_DIR
+}
+
+
+task extractModels(type: Copy) {
+    dependsOn downloadAndUnzipFile
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug') {
+        task.dependsOn 'extractModels'
+    }
+    if (task.name == 'assembleRelease') {
+        task.dependsOn 'extractModels'
+    }
+}
